@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MP tracción Application</title>
+    <link rel="stylesheet" type="text/css" href="poc-bokeh-auth/static/css/styles.css">    
+</head>
+<body>
+    <div class="wrap">
+        <form class="login-form" action="/login" method="post">
+            {% module xsrf_form_html() %}
+            <div class="form-header">
+                <img src="poc-bokeh-auth/static/images/logo_gsdpi.png" alt="Logo" width="100">
+                <p>Login to access <strong>MP tracción</strong></p>
+            </div>
+
+            <!--Email Input-->
+            <div class="form-group">
+                <input name="username" type="text" class="form-input" autocapitalize="off" autocorrect="off" placeholder="username">
+            </div>
+
+            <!--Password Input-->
+            <div class="form-group">
+                <input name="password" type="password" class="form-input" placeholder="password">
+            </div>
+
+            <!--Login Button-->
+            <div class="form-group">
+                <button class="form-button" type="submit">Login</button>
+            </div>
+
+            <span class="errormessage">{{errormessage}}</span>
+            <div><small>
+
+            <p><a href="https://gsdpi.edv.uniovi.es/webpage/" target=”_blank”>Go to GSDPI Lab</a> for more details.</p>
+            </small></div>
+        </form>
+    </div>
+</body>
+</html>
