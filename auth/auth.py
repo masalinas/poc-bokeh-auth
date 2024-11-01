@@ -7,6 +7,7 @@ def get_user(request_handler):
 
 # could also define get_login_url function (but must give up LoginHandler)
 login_url = "/login"
+#login_url = "/MP/login"
 
 # optional login page for login_url
 class LoginHandler(RequestHandler):
@@ -50,6 +51,7 @@ class LoginHandler(RequestHandler):
 
 # optional logout_url, available as curdoc().session_context.logout_url
 logout_url = "/logout"
+#logout_url = "/MP/logout"
 
 # optional logout handler for logout_url
 class LogoutHandler(RequestHandler):
