@@ -21,7 +21,8 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;    
-    background-image: url('/poc-bokeh-auth/static/images/login_background.png');
+    /*background-image: url('/poc-bokeh-auth/static/images/login_background.png');*/
+    background-image: url('/static/images/login_background.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     min-height: 100vh;

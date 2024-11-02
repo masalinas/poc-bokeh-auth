@@ -33,7 +33,8 @@ class LoginHandler(RequestHandler):
 
         if auth:
             self.set_current_user(username)
-            self.redirect("/")
+            #self.redirect("/")
+            self.redirect("/MP")
         else:
             error_msg = "?error=" + tornado.escape.url_escape("Login incorrect")
             self.redirect(login_url + error_msg)
@@ -51,4 +52,5 @@ logout_url = "/logout"
 class LogoutHandler(RequestHandler):
     def get(self):
         self.clear_cookie("user")
-        self.redirect("/")
+        #self.redirect("/")
+        self.redirect("/MP")
