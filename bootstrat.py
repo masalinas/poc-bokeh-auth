@@ -12,12 +12,12 @@ bokeh_app = build_single_handler_application('./main.py')
 
 # Embed the Bokeh server in the Tornado application
 bokeh_server = Server(
-    {'/': bokeh_app},
+    {'/poc-bokeh-auth': bokeh_app},
     prefix=prefix,
     auth_provider=auth_provider)
 
-#auth_provider._module.login_url = f'/{prefix}/login/'
-#auth_provider._module.logout_url = f'/{prefix}/logout/'
+auth_provider._module.login_url = f'/{prefix}/login/'
+auth_provider._module.logout_url = f'/{prefix}/logout/'
 
 bokeh_server.start()
 bokeh_server.io_loop.start()
