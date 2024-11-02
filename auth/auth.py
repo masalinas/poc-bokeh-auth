@@ -19,11 +19,7 @@ class LoginHandler(RequestHandler):
         self.render("login.html", errormessage=errormessage)
 
     def check_permission(self, username, password):
-        # !!!
-        # !!! This code below is a toy demonstration of the API, and not
-        # !!! intended for "real" use. A real app should use these APIs
-        # !!! to connect Oauth or some other established auth workflow.
-        # !!!
+        # Basic authentication        
         if username == "bokeh" and password == "bokeh":
             return True
 

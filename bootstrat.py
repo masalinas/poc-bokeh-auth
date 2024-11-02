@@ -12,7 +12,7 @@ auth_provider = AuthModule('./auth/auth.py')
 # Define Bokeh application
 bokeh_app = build_single_handler_application('./main.py')
 
-# Embed the Bokeh server in the Tornado application
+# Embed the Bokeh server in the Tornado application with Authenticacion
 bokeh_server = Server(
     {'/poc-bokeh-auth': bokeh_app},
     prefix=prefix,
