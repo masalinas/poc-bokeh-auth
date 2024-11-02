@@ -3,10 +3,10 @@ A PoC with bokeh server with a custom basic login view
 
 ## STEPS
 
-- **STEP01**: ## Execute application
+- **STEP01**: ## Execute application from embedded bokeh server bootstrap file
 
 ```
-BOKEH_COOKIE_SECRET='my super secret' bokeh serve --auth-module=./poc-bokeh-auth/auth/auth.py --show poc-bokeh-auth
+python boostrap.py
 ```
 
 - **STEP02**: Build the docker image
