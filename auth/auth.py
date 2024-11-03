@@ -1,14 +1,14 @@
 import tornado
 from tornado.web import RequestHandler
 
-# could define get_user_async instead
-def get_user(request_handler):
-    return request_handler.get_signed_cookie("user")
-
 # Define Auth Module arguments
 prefix = "MP"
 basic_username = "bokeh"
 basic_password = "bokeh"
+
+# could define get_user_async instead
+def get_user(request_handler):
+    return request_handler.get_signed_cookie("user")
 
 # could also define get_login_url function (but must give up LoginHandler)
 login_url = "/login"
