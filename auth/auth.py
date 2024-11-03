@@ -5,6 +5,7 @@ from tornado.web import RequestHandler
 def get_user(request_handler):
     return request_handler.get_signed_cookie("user")
 
+# Define Auth Module arguments
 prefix = "MP"
 basic_username = "bokeh"
 basic_password = "bokeh"
