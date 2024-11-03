@@ -2,6 +2,7 @@ import tornado
 from tornado.web import RequestHandler
 
 # Define Auth Module arguments configured from bootstrap
+app_title = ""
 prefix = ""
 style_path = ""
 logo_image = ""
@@ -24,8 +25,9 @@ class LoginHandler(RequestHandler):
         except Exception:
             error_message = ""
 
-        self.render("login.html", 
-                    prefix=prefix, 
+        self.render("login.html",                     
+                    prefix=prefix,
+                    app_title = app_title, 
                     style_path=style_path,
                     logo_image=logo_image,
                     background_image=background_image,
