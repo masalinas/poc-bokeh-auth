@@ -1,4 +1,5 @@
 import os
+import logging
 
 from tornado.web import StaticFileHandler
 
@@ -6,6 +7,9 @@ from bokeh.server.server import Server
 from bokeh.server.auth_provider import AuthModule
 from bokeh.server.views.static_handler import StaticHandler
 from bokeh.command.util import build_single_handler_application
+
+# Set Loggin level for bokeh server
+logging.getLogger('bokeh').setLevel(logging.DEBUG)
 
 # Define Bokeh Server Prefix
 prefix = 'MP'
@@ -29,16 +33,13 @@ static_path = os.path.join(os.path.dirname(__file__), "static")
 
 # Embed the Bokeh server in the Tornado application with Authenticacion
 bokeh_server = Server(
-    {'/poc-bokeh-auth': bokeh_app},
+    {'/': bokeh_app},
     prefix=prefix,
     auth_provider=auth_provider,
     allow_websocket_origin=websocket_origin,
-    toplevel_patterns=[
-        ( r'/MP/poc-bokeh-auth/static/(.*)', StaticHandler )
+    extra_patterns=[
+        (r'/poc-bokeh-auth/static/(.*)', StaticFileHandler, {"path": static_path})
     ],
-    #extra_patterns=[
-    #    (r'/MP/poc-bokeh-auth/static/(.*)', StaticFileHandler, {"path": static_path})
-    #],
     **server_settings)
 
 auth_provider._module.login_url = f'/{prefix}/login'
