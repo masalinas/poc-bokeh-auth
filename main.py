@@ -79,4 +79,4 @@ for w in [offset, amplitude, phase, freq]:
 inputs = column(text, offset, amplitude, phase, freq, logout)
 
 curdoc().add_root(row(inputs, plot, width=800))
-curdoc().title = "Poc Bokeh Auth"
+curdoc().title = "PoC Bokeh Auth"
