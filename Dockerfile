@@ -17,4 +17,4 @@ COPY ./ /poc-bokeh-auth
 EXPOSE 5006
 
 # Comando para ejecutar el servidor de Bokeh
-CMD ["python", "bootstrat.py"]
+CMD ["python", "bootstrap.py"]

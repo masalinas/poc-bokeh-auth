@@ -3,12 +3,6 @@ A PoC with bokeh server with a custom basic login view
 
 ## STEPS
 
-- **STEP01_1**: Execute application from bokeh server command line
-
-```
-BOKEH_COOKIE_SECRET='my super secret' bokeh serve --auth-module=./poc-bokeh-auth/auth/auth.py --show poc-bokeh-auth
-```
-
 - **STEP01_2**: Execute application from embedded bokeh server bootstrap file
 
 ```
