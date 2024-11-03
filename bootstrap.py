@@ -7,7 +7,7 @@ from bokeh.server.server import Server
 from bokeh.server.auth_provider import AuthModule
 from bokeh.command.util import build_single_handler_application
 
-# Define Bokeh Server arguments
+# Bokeh Server arguments
 app = "poc-bokeh-auth"
 app_title = "PoC Bokeh Auth"
 app_logo = "logo_gsdpi.png"
@@ -52,7 +52,7 @@ bokeh_server = Server(
     ],
     **server_settings)
 
-# Post auth provider configuration
+# Configure Auth Provider arguments
 auth_provider._module.login_url = f"/{prefix}/login"
 auth_provider._module.logout_url = f"/{prefix}/logout"
 auth_provider._module.app = app
