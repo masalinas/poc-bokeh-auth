@@ -12,10 +12,10 @@ app = "poc-bokeh-auth"
 app_title = "PoC Bokeh Auth"
 app_logo = "logo_gsdpi.png"
 app_background = "login_background.png"
-prefix = "MP"
-port = 5006
+app_prefix = "MP"
+app_port = 5006
 cookie_secret = "my super secret"
-websocket_origin = ["k8s.oferto.io:80", "localhost:" + str(port)]
+websocket_origin = ["k8s.oferto.io:80", "localhost:" + str(app_port)]
 basic_username = "bokeh"
 basic_password = "bokeh"
 login_level = logging.DEBUG
@@ -43,8 +43,8 @@ static_path = os.path.join(os.path.dirname(__file__), "static")
 # Embed the Bokeh server in the Tornado application with Authenticacion
 bokeh_server = Server(
     {"/": bokeh_app},
-    port=port,
-    prefix=prefix,
+    port=app_port,
+    prefix=app_prefix,
     auth_provider=auth_provider,
     allow_websocket_origin=websocket_origin,
     extra_patterns=[
@@ -53,14 +53,14 @@ bokeh_server = Server(
     **server_settings)
 
 # Configure Auth Provider arguments
-auth_provider._module.login_url = f"/{prefix}/login"
-auth_provider._module.logout_url = f"/{prefix}/logout"
+auth_provider._module.login_url = f"/{app_prefix}/login"
+auth_provider._module.logout_url = f"/{app_prefix}/logout"
 auth_provider._module.app = app
 auth_provider._module.app_title = app_title
-auth_provider._module.prefix = prefix
-auth_provider._module.style_path = "/" + prefix + "/" + app + "/static/css/styles.css"
-auth_provider._module.logo_image = "/" + prefix + "/" + app + "/static/images/" + app_logo
-auth_provider._module.background_image = "/" + prefix + "/" + app + "/static/images/" + app_background
+auth_provider._module.prefix = app_prefix
+auth_provider._module.style_path = "/" + app_prefix + "/" + app + "/static/css/styles.css"
+auth_provider._module.logo_image = "/" + app_prefix + "/" + app + "/static/images/" + app_logo
+auth_provider._module.background_image = "/" + app_prefix + "/" + app + "/static/images/" + app_background
 auth_provider._module.basic_username = basic_username
 auth_provider._module.basic_password = basic_password
 
