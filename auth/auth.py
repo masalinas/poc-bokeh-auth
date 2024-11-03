@@ -6,6 +6,8 @@ def get_user(request_handler):
     return request_handler.get_signed_cookie("user")
 
 prefix = "MP"
+basic_username = "bokeh"
+basic_password = "bokeh"
 
 # could also define get_login_url function (but must give up LoginHandler)
 login_url = "/login"
@@ -22,7 +24,7 @@ class LoginHandler(RequestHandler):
 
     def check_permission(self, username, password):
         # Basic authentication        
-        if username == "bokeh" and password == "bokeh":
+        if username == basic_username and password == basic_password:
             return True
 
         return False
