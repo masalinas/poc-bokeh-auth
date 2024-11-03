@@ -9,11 +9,11 @@ from bokeh.command.util import build_single_handler_application
 
 # Bokeh Server arguments
 app = "poc-bokeh-auth"
+app_prefix = "MP"
+app_port = 5006
 app_title = "PoC Bokeh Auth"
 app_logo = "logo_gsdpi.png"
 app_background = "login_background.png"
-app_prefix = "MP"
-app_port = 5006
 cookie_secret = "my super secret"
 websocket_origin = ["k8s.oferto.io:80", "localhost:" + str(app_port)]
 basic_username = "bokeh"
