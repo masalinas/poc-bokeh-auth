@@ -2,9 +2,9 @@ import tornado
 from tornado.web import RequestHandler
 
 # Define Auth Module arguments
-prefix = "MP"
-basic_username = "bokeh"
-basic_password = "bokeh"
+prefix = ""
+basic_username = ""
+basic_password = ""
 
 # could define get_user_async instead
 def get_user(request_handler):

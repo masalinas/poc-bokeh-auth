@@ -13,6 +13,8 @@ prefix = "MP"
 port = 5006
 cookie_secret = "my super secret"
 websocket_origin = ["k8s.oferto.io:80", "localhost:" + str(port)]
+basic_username = "bokeh"
+basic_password = "bokeh"
 login_level = logging.DEBUG
 
 # Set Loggin level for bokeh server
@@ -47,9 +49,12 @@ bokeh_server = Server(
     ],
     **server_settings)
 
-# Some bug from bokeh that not set the prefix for external resources
+# Post auth provider configuration
 auth_provider._module.login_url = f"/{prefix}/login"
 auth_provider._module.logout_url = f"/{prefix}/logout"
+auth_provider._module.prefix = prefix
+auth_provider._module.basic_username = basic_username
+auth_provider._module.basic_password = basic_password
 
 # Start Bokeh Server
 bokeh_server.start()
