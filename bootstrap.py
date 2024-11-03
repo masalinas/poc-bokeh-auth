@@ -10,6 +10,8 @@ from bokeh.command.util import build_single_handler_application
 # Define Bokeh Server arguments
 app = "poc-bokeh-auth"
 app_title = "PoC Bokeh Auth"
+app_logo = "logo_gsdpi.png"
+app_background = "login_background.png"
 prefix = "MP"
 port = 5006
 cookie_secret = "my super secret"
@@ -57,8 +59,8 @@ auth_provider._module.app = app
 auth_provider._module.app_title = app_title
 auth_provider._module.prefix = prefix
 auth_provider._module.style_path = "/" + prefix + "/" + app + "/static/css/styles.css"
-auth_provider._module.logo_image = "/" + prefix + "/" + app + "/static/images/logo_gsdpi.png"
-auth_provider._module.background_image = "/" + prefix + "/" + app + "/static/images/login_background.png"
+auth_provider._module.logo_image = "/" + prefix + "/" + app + "/static/images/" + app_logo
+auth_provider._module.background_image = "/" + prefix + "/" + app + "/static/images/" + app_background
 auth_provider._module.basic_username = basic_username
 auth_provider._module.basic_password = basic_password
 
