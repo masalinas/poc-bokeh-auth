@@ -12,11 +12,11 @@ login_url = "/login"
 class LoginHandler(RequestHandler):
     def get(self):
         try:
-            errormessage = self.get_argument("error")
+            error_message = self.get_argument("error")
         except Exception:
-            errormessage = ""
+            error_message = ""
 
-        self.render("login.html", errormessage=errormessage)
+        self.render("login.html", errormessage=error_message)
 
     def check_permission(self, username, password):
         # Basic authentication        
@@ -33,11 +33,10 @@ class LoginHandler(RequestHandler):
 
         if auth:
             self.set_current_user(username)
-            #self.redirect("/")
             self.redirect("/MP")
         else:
-            error_msg = "?error=" + tornado.escape.url_escape("Login incorrect")
-            self.redirect(login_url + error_msg)
+            error_message = "?error=" + tornado.escape.url_escape("Login incorrect")
+            self.redirect(login_url + error_message)
 
     def set_current_user(self, user):
         if user:
@@ -52,5 +51,4 @@ logout_url = "/logout"
 class LogoutHandler(RequestHandler):
     def get(self):
         self.clear_cookie("user")
-        #self.redirect("/")
         self.redirect("/MP")

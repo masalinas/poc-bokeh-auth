@@ -5,7 +5,6 @@ from tornado.web import StaticFileHandler
 
 from bokeh.server.server import Server
 from bokeh.server.auth_provider import AuthModule
-from bokeh.server.views.static_handler import StaticHandler
 from bokeh.command.util import build_single_handler_application
 
 # Set Loggin level for bokeh server
