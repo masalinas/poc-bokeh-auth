@@ -42,6 +42,7 @@ bokeh_server = Server(
     ],
     **server_settings)
 
+# Some bug from bokeh that not set the prefix for external resources
 auth_provider._module.login_url = f'/{prefix}/login'
 auth_provider._module.logout_url = f'/{prefix}/logout'
 
