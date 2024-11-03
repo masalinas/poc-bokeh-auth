@@ -1,7 +1,7 @@
 import tornado
 from tornado.web import RequestHandler
 
-# Define Auth Module arguments
+# Define Auth Module arguments configured from bootstrap
 prefix = ""
 style_path = ""
 logo_image = ""
