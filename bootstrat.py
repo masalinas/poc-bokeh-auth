@@ -11,9 +11,9 @@ from bokeh.command.util import build_single_handler_application
 app = "poc-bokeh-auth"
 prefix = "MP"
 port = 5006
-login_level = logging.DEBUG
 cookie_secret = "my super secret"
 websocket_origin = ["k8s.oferto.io:80", "localhost:" + str(port)]
+login_level = logging.DEBUG
 
 # Set Loggin level for bokeh server
 logging.getLogger("bokeh").setLevel(login_level)
