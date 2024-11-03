@@ -5,6 +5,8 @@ from tornado.web import RequestHandler
 def get_user(request_handler):
     return request_handler.get_signed_cookie("user")
 
+prefix = "MP"
+
 # could also define get_login_url function (but must give up LoginHandler)
 login_url = "/login"
 
@@ -33,7 +35,7 @@ class LoginHandler(RequestHandler):
 
         if auth:
             self.set_current_user(username)
-            self.redirect("/MP")
+            self.redirect("/" + prefix)
         else:
             error_message = "?error=" + tornado.escape.url_escape("Login incorrect")
             self.redirect(login_url + error_message)
@@ -51,4 +53,4 @@ logout_url = "/logout"
 class LogoutHandler(RequestHandler):
     def get(self):
         self.clear_cookie("user")
-        self.redirect("/MP")
+        self.redirect("/" + prefix)
