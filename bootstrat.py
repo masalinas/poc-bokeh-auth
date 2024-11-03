@@ -7,12 +7,16 @@ from bokeh.server.server import Server
 from bokeh.server.auth_provider import AuthModule
 from bokeh.command.util import build_single_handler_application
 
-# Set Loggin level for bokeh server
-logging.getLogger("bokeh").setLevel(logging.DEBUG)
-
 # Define Bokeh Server arguments
+app = "poc-bokeh-auth"
 prefix = "MP"
 port = 5006
+login_level = logging.DEBUG
+cookie_secret = "my super secret"
+websocket_origin = ["k8s.oferto.io:80", "localhost:" + str(port)]
+
+# Set Loggin level for bokeh server
+logging.getLogger("bokeh").setLevel(login_level)
 
 # Define Bokeh Authentication Module
 auth_provider = AuthModule("./auth/auth.py")
@@ -22,11 +26,11 @@ bokeh_app = build_single_handler_application("./main.py")
 
 # Define the server settings, including the cookie_secret
 server_settings = {
-    "cookie_secret": "my super secret",
+    "cookie_secret": cookie_secret,
 }
 
 # Define the allowed WebSocket origins (adjust for your domains and ports)
-websocket_origin = ["k8s.oferto.io:80", "localhost:" + str(port)]
+websocket_origin = websocket_origin
 
 # Define the static path
 static_path = os.path.join(os.path.dirname(__file__), "static")
@@ -39,7 +43,7 @@ bokeh_server = Server(
     auth_provider=auth_provider,
     allow_websocket_origin=websocket_origin,
     extra_patterns=[
-        (r"/poc-bokeh-auth/static/(.*)", StaticFileHandler, {"path": static_path})
+        (r"/" + app + "/static/(.*)", StaticFileHandler, {"path": static_path})
     ],
     **server_settings)
 
