@@ -3,6 +3,9 @@ from tornado.web import RequestHandler
 
 # Define Auth Module arguments
 prefix = ""
+style_path = ""
+logo_image = ""
+background_image = ""
 basic_username = ""
 basic_password = ""
 
@@ -21,7 +24,12 @@ class LoginHandler(RequestHandler):
         except Exception:
             error_message = ""
 
-        self.render("login.html", errormessage=error_message)
+        self.render("login.html", 
+                    prefix=prefix, 
+                    style_path=style_path,
+                    logo_image=logo_image,
+                    background_image=background_image,
+                    errormessage=error_message)
 
     def check_permission(self, username, password):
         # Basic authentication        

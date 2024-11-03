@@ -2,15 +2,16 @@
 <html>
 <head>
     <title>PoC Bokeh Auth Login</title>
-    <link rel="stylesheet" type="text/css" href="/MP/poc-bokeh-auth/static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href={{style_path}} >
 </head>
-<body>
+<body style="background-image: url({{background_image}})">
     <div class="wrap">
-        <form class="login-form" action="/MP/login" method="post">
+        <form class="login-form" action="/{{prefix}}/login" method="post">
             {% module xsrf_form_html() %}
             <div class="form-header">
-                <img src="/MP/poc-bokeh-auth/static/images/logo_gsdpi.png" alt="Logo" width="100">
-                <p>Login to access <strong>PoC Bokeh Auth</strong></p>
+                <img src={{logo_image}} alt="Logo" width="100">
+
+                <p>Login to access <strong>PoC Bokeh Auth</strong></p>                
             </div>
 
             <!--Email Input-->

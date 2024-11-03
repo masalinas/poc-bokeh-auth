@@ -52,7 +52,11 @@ bokeh_server = Server(
 # Post auth provider configuration
 auth_provider._module.login_url = f"/{prefix}/login"
 auth_provider._module.logout_url = f"/{prefix}/logout"
+auth_provider._module.app = app
 auth_provider._module.prefix = prefix
+auth_provider._module.style_path = "/" + prefix + "/" + app + "/static/css/styles.css"
+auth_provider._module.logo_image = "/" + prefix + "/" + app + "/static/images/logo_gsdpi.png"
+auth_provider._module.background_image = "/" + prefix + "/" + app + "/static/images/login_background.png"
 auth_provider._module.basic_username = basic_username
 auth_provider._module.basic_password = basic_password
 
